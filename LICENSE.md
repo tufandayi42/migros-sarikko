@@ -1,4 +1,4 @@
-MigrOS İşletim Sistemi Markası Telif Hakkı Bildirimi
+# MigrOS İşletim Sistemi Markası Telif Hakkı Bildirimi
 
 MigrOS İşletim Sistemleri, tufandayi42 tarafından geliştirilmiş açık kaynak işletim sistemleridir. Tüm hakları saklıdır.
 
