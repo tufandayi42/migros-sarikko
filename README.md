@@ -9,4 +9,4 @@ MigrOS İşletim Sistemleri, bağımsız bir geliştirici olan tufandayi42 taraf
 
 MigrOS Şarikko İşletim Sistemi, Şu anlık sadece Windows için uyumludur.
 
-MigrOS Şarikko İşletim Sistemi'nin Linux veya diğer işletim sistemlerine destek vermesi şu anlık planlanmıyor.
+MigrOS Şarikko İşletim Sistemi'nin GNU/Linux veya diğer işletim sistemlerine destek vermesi şu anlık planlanmıyor.
