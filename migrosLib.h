@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <unistd.h>
-#include <termios.h>
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -11,6 +10,7 @@
 #include <chrono>
 #include <thread>
 #include <vector>
+#include <conio.h>
 
 using namespace std;
 
@@ -18,6 +18,11 @@ void wait(int seconds) {
     this_thread::sleep_for(chrono::seconds(seconds));
 }
 
+void clear() {
+    system("cls");
+}
+
+/*
 char getch() {
     char buf = 0;
     struct termios old = {0};
@@ -38,10 +43,10 @@ char getch() {
         perror("tcsetattr ~ICANON");
     return buf;
 }
-
+*/      //win
 
 int mainSystem() {
-    system("clear");
+    clear();
     ifstream file("data.sarikko");
 
     string line;
@@ -59,8 +64,6 @@ int mainSystem() {
 
     file.close();
 
-
-    cout << "Migros Ticaret A.S MigrOS Sarikko" << "\n" << endl;
     cout << computerName << "/>" << endl;
 
     return 0;
@@ -68,7 +71,7 @@ int mainSystem() {
 
 
 int setupSystem() {
-    system("clear");
+    clear();
 
     ifstream dataFileRead("data.sarikko");
 
@@ -78,7 +81,7 @@ int setupSystem() {
         while (dataFileRead >> line) {
 
             if(line == "setupComplete") {
-                system("clear");
+                clear();
                 mainSystem();
                 return 0;
             }
@@ -93,30 +96,30 @@ int setupSystem() {
     if(yesno=="n" or yesno=="N") {cout << "Goodbye!" << endl; return 0;}
     if(yesno!="y" and yesno!="Y") {cout << "\n Incorrect answer." << endl; return 0;}
 
-    system("clear");
+    clear();
 
     cout << "Press a key. You will use this key while navigating UP in menus." << endl;
     char upKey = getch();
-    system("clear");
+    clear();
 
     cout << "Press a key. You will use this key while navigating DOWN in menus." << endl;
     char downKey = getch();
-    system("clear");
+    clear();
 
     cout << "Press a key. You will use this key to confirm something (you will use this key instead of enter)" << endl;
     char enterKey = getch();
-    system("clear");
+    clear();
 
     cout << "Add a custom keyword to your system? This might affect your experience. If you don't want to add something, you can just ignore this." << endl;
     string keyword;
     cin >> keyword;
-    system("clear");
+    clear();
 
     cout << "What would you like to name this computer?" << endl;
     string computerName;
     cin >> computerName;
 
-    system("clear");
+    clear();
 
     ofstream dataFile("data.sarikko");
 
@@ -132,7 +135,7 @@ int setupSystem() {
 
     cout << "Saving your options." << endl;
     wait(2);
-    system("clear");
+    clear();
     cout << "Setup is complete! Please restart your system." << endl;
     wait(3);
     return 0;
