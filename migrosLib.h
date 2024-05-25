@@ -10,6 +10,7 @@
 #include <chrono>
 #include <thread>
 #include <vector>
+#include <filesystem>
 #include <conio.h>
 
 using namespace std;
@@ -20,6 +21,11 @@ void wait(int seconds) {
 
 void clear() {
     system("cls");
+}
+
+string lowerCase(string string) {
+    for (char& c: string) { c = std::tolower(c); }
+    return string;
 }
 
 
@@ -39,10 +45,39 @@ int mainSystem() {
     string enterKey = lines[2];
     string keyword = lines[3];
     string computerName = lines[4];
-
     file.close();
 
-    cout << computerName << "/>" << endl;
+
+    while(true) {
+
+        if(lowerCase(keyword) == "isos") {cout << "isos veri caliyor migros better"; return 0;}
+        if(lowerCase(keyword) == "dorukay") {cout << "DORUKAYA KIVI YEDIRT"; return 0;}
+
+        cout << computerName << "/> ";
+        string command;
+
+        cin >> command;
+        command == lowerCase(command);
+
+        if(command == "exit") { //exit
+
+            cout << "Goodbye!" << endl;
+            return 0;
+
+        } else if (command == "settings") {
+
+            cout << "Here is the list of commands you can run in the settings:" << endl;
+            cout << "   'purge data': Deletes your data file." << endl;
+
+        } else if (command == "purge-data") {
+
+            filesystem::remove("data.sarikko");
+            cout << "Deleted your data file.";
+            cout << "\n";
+            return 0;
+
+        }
+    }
 
     return 0;
 }
@@ -60,6 +95,7 @@ int setupSystem() {
 
             if(line == "setupComplete") {
                 clear();
+                dataFileRead.close();
                 mainSystem();
                 return 0;
             }
